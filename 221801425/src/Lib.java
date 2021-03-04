@@ -84,4 +84,17 @@ public class Lib{
         }
         return count;
     }
+
+    public static List<Map.Entry<String, Integer>> sortHashmap() {
+        List<Map.Entry<String, Integer>> list;
+        list = new ArrayList<Map.Entry<String, Integer>>(wordsMap.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>(){
+            public int compare(Entry<String, Integer> m1, Entry<String, Integer> m2) {
+                if(m1.getValue().equals(m2.getValue())) {
+                    return m1.getKey().compareTo(m2.getKey());
+                }else return m2.getValue()-m1.getValue();
+            }
+        });
+        return list;
+    }
 }
