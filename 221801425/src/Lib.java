@@ -42,4 +42,16 @@ public class Lib{
         }
         return sbuilder.toString();
     }
+
+    public static int getCharactersCount(String str) {
+        int count = 0;
+        char[] ch = str.toCharArray();
+        for(int i = 0; i < ch.length; i++) {
+            if(ch[i] >= 0 && ch[i] <= 127) {
+                count++;
+            }else continue;
+        }
+        return count;
+    }
+
 }
