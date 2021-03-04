@@ -54,4 +54,24 @@ public class Lib{
         return count;
     }
 
+    public static int getWordsCount(String str) {
+        //单词数的统计量
+        int count = 0;
+        String[] strs = str.split(BREAK_RE);
+        for(int i = 0; i < strs.length; i++) {
+            if(strs[i].matches(WORDS_RE)) {
+                String temp = strs[i].toLowerCase();
+                if(wordsMap.containsKey(temp)) {
+                    int num = wordsMap.get(temp);
+                    wordsMap.put(temp, 1 + num);
+                }
+                else {
+                    wordsMap.put(temp, 1);
+                }
+                count++;
+            }
+        }
+        return count;
+    }
+
 }
