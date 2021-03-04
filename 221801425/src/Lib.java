@@ -44,6 +44,7 @@ public class Lib{
     }
 
     public static int getCharactersCount(String str) {
+        //字符数统计数量
         int count = 0;
         char[] ch = str.toCharArray();
         for(int i = 0; i < ch.length; i++) {
@@ -74,4 +75,13 @@ public class Lib{
         return count;
     }
 
+    public static int getLineCount(String str) {
+        //行数统计数量
+        int count = 0;
+        Matcher matcher = Pattern.compile(LINE_RE).matcher(str);
+        while(matcher.find()) {
+            count++;
+        }
+        return count;
+    }
 }
