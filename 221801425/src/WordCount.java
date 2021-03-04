@@ -1,5 +1,4 @@
-import java.io.IOException;
-
+import java.io.*;
 public class WordCount {
     String inputFile = "";
     String outputFile = "";
@@ -15,9 +14,9 @@ public class WordCount {
 
     //变量的初始化
     public void init() {
-        this.characters = Lib.getCharactersCount(Lib.readFromFile(this.inputFile));
-        this.lines = Lib.getLineCount(Lib.readFromFile(this.inputFile));
-        this.words = Lib.getWordsCount(Lib.readFromFile(this.inputFile));
+        this.characters = Lib.getCharactersNum(Lib.readFromFile(this.inputFile));
+        this.lines = Lib.getLineNum(Lib.readFromFile(this.inputFile));
+        this.words = Lib.getWordsNum(Lib.readFromFile(this.inputFile));
     }
 
     public void run() {
@@ -26,15 +25,23 @@ public class WordCount {
 
     public static void main(String[] args) {
         if(args.length < 2) {
-            System.out.println("参数不足,请重新运行！");
+            System.out.println("请重新运行！");
         }
         else {
-            long starttime = System.currentTimeMillis();
+            long long starttime = System.currentTimeMillis();
             WordCount wordCount = new WordCount(args[0], args[1]);
             wordCount.init();
             wordCount.run();
-            long endtime = System.currentTimeMillis();
-            System.out.println("time costs: " + (endtime - starttime) + "ms");
+            long long endtime = System.currentTimeMillis();
+            System.out.println("运行时间为: " + (endtime - starttime) + "ms");
+        }
+        int i = 0;
+        for(Map.Entry<String, Integer> map : list) {
+            assertEquals(map.getKey(),result[i]);
+            i++;
+            System.out.println(map.getKey()+" : "+map.getValue());
         }
     }
 }
+
+
