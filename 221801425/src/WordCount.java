@@ -25,6 +25,16 @@ public class WordCount {
     }
 
     public static void main(String[] args) {
-
+        if(args.length < 2) {
+            System.out.println("参数不足,请重新运行！");
+        }
+        else {
+            long starttime = System.currentTimeMillis();
+            WordCount wordCount = new WordCount(args[0], args[1]);
+            wordCount.init();
+            wordCount.run();
+            long endtime = System.currentTimeMillis();
+            System.out.println("time costs: " + (endtime - starttime) + "ms");
+        }
     }
 }
